@@ -1,4 +1,4 @@
-# High-Performance SQL Data Access with ConnectorX and Arrow
+# High-Performance Python SQL Server benchmark
 
 This project benchmarks the various python connection methods for SQL Server. 
 

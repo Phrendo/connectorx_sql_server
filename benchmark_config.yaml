@@ -30,10 +30,9 @@ methods:
     function: "test_connectorx_pandas"
     description: "ConnectorX to Pandas DataFrame"
 
-  # Temporarily disabled due to arrow-odbc installation issue
-  # - name: "Polars_Native"
-  #   function: "test_polars_native"
-  #   description: "Polars native database reader"
+  - name: "Polars_Native"
+    function: "test_polars_native"
+    description: "Polars native database reader"
 
   - name: "ConnectorX_Arrow_Polars"
     function: "test_connectorx_arrow_polars"

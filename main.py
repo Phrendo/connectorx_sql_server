@@ -33,9 +33,13 @@ df = cx.read_sql(CONN_URI, sql, return_type="pandas")
 print(df)
 
 # Direct from polars
-df = pl.read_database(sql, CONN_ODBC)
+df = pl.read_database(sql, CONN_ODBC) 
 print(df)
 
-# From connectorx to polars arrow format -- this will be the fastest for large datasets.
+# From connectorx to polars arrow format
 df = pl.from_arrow(cx.read_sql(CONN_URI, sql, return_type="arrow"))
+print(df)
+
+# Direct ConnectorX to Polars (no conversion step)
+df = cx.read_sql(CONN_URI, sql, return_type="polars")
 print(df)

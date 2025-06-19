@@ -1,0 +1,56 @@
+# Benchmark Configuration
+# Define test scenarios for SQL Server data access performance testing
+
+database:
+  table_name: ${SQL_BENCHMARK_TABLE}  # Read from environment
+  
+test_scenarios:
+  - name: "small_dataset"
+    row_count: 100000
+    runs: 1
+    description: "Small dataset test"
+    
+  - name: "medium_dataset" 
+    row_count: 1000000
+    runs: 1
+    description: "Medium dataset test"
+    
+  - name: "large_dataset"
+    row_count: 10000000
+    runs: 1
+    description: "Large dataset test"
+    
+  - name: "xlarge_dataset"
+    row_count: 50000000
+    runs: 1
+    description: "Extra large dataset test"
+
+methods:
+  - name: "ConnectorX_Pandas"
+    function: "test_connectorx_pandas"
+    description: "ConnectorX to Pandas DataFrame"
+    
+  - name: "Polars_Native"
+    function: "test_polars_native" 
+    description: "Polars native database reader"
+    
+  - name: "ConnectorX_Arrow_Polars"
+    function: "test_connectorx_arrow_polars"
+    description: "ConnectorX to Arrow to Polars"
+    
+  - name: "ConnectorX_Polars_Direct"
+    function: "test_connectorx_polars_direct"
+    description: "ConnectorX direct to Polars"
+    
+  - name: "pyodbc_Pandas"
+    function: "test_pyodbc_pandas"
+    description: "pyodbc to Pandas DataFrame"
+    
+  - name: "SQLAlchemy_Pandas"
+    function: "test_sqlalchemy_pandas"
+    description: "SQLAlchemy to Pandas DataFrame"
+
+output:
+  csv_file: "benchmark_results.csv"
+  include_system_info: true
+  timestamp_format: "%Y-%m-%d %H:%M:%S"

@@ -129,12 +129,6 @@ def test_polars_native(query: str, conn_odbc: str) -> Dict[str, Any]:
     monitor.start()
 
     try:
-        # Debug: Let's see what connection string we're using
-        print(f"[DEBUG] Connection string length: {len(conn_odbc)}")
-        print(f"[DEBUG] Query length: {len(query)}")
-
-        # Try a simpler connection string format for Polars
-        # Polars might be more sensitive to the connection string format
         df = pl.read_database(query, conn_odbc)
         result = monitor.stop()
         result['rows'] = len(df)

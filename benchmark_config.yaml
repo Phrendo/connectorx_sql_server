@@ -29,23 +29,24 @@ methods:
   - name: "ConnectorX_Pandas"
     function: "test_connectorx_pandas"
     description: "ConnectorX to Pandas DataFrame"
-    
-  - name: "Polars_Native"
-    function: "test_polars_native" 
-    description: "Polars native database reader"
-    
+
+  # Temporarily disabled due to arrow-odbc installation issue
+  # - name: "Polars_Native"
+  #   function: "test_polars_native"
+  #   description: "Polars native database reader"
+
   - name: "ConnectorX_Arrow_Polars"
     function: "test_connectorx_arrow_polars"
     description: "ConnectorX to Arrow to Polars"
-    
+
   - name: "ConnectorX_Polars_Direct"
     function: "test_connectorx_polars_direct"
     description: "ConnectorX direct to Polars"
-    
+
   - name: "pyodbc_Pandas"
     function: "test_pyodbc_pandas"
     description: "pyodbc to Pandas DataFrame"
-    
+
   - name: "SQLAlchemy_Pandas"
     function: "test_sqlalchemy_pandas"
     description: "SQLAlchemy to Pandas DataFrame"

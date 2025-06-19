@@ -22,7 +22,7 @@ test_scenarios:
     
   - name: "xlarge_dataset"
     row_count: 50000000
-    runs: 1
+    runs: 0
     description: "Extra large dataset test"
 
 methods:

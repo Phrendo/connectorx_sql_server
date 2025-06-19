@@ -5,3 +5,6 @@ polars
 pyarrow
 python-dotenv
 PyYAML
+psutil
+pyodbc
+sqlalchemy

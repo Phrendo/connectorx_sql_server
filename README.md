@@ -18,6 +18,9 @@ This project demonstrates three different approaches to reading SQL Server data 
    MSSQL_PWD=your_password
    MSSQL_PORT=1433
    MSSQL_DRIVER=ODBC Driver 17 for SQL Server
+
+
+   SQL_BENCHMARK_TABLE=your_benchmark_table
    ```
 
 3. **Run the examples:**

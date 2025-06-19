@@ -127,8 +127,14 @@ def test_polars_native(query: str, conn_odbc: str) -> Dict[str, Any]:
     """Polars native database reader"""
     monitor = PerformanceMonitor()
     monitor.start()
-    
+
     try:
+        # Debug: Let's see what connection string we're using
+        print(f"[DEBUG] Connection string length: {len(conn_odbc)}")
+        print(f"[DEBUG] Query length: {len(query)}")
+
+        # Try a simpler connection string format for Polars
+        # Polars might be more sensitive to the connection string format
         df = pl.read_database(query, conn_odbc)
         result = monitor.stop()
         result['rows'] = len(df)
@@ -140,7 +146,10 @@ def test_polars_native(query: str, conn_odbc: str) -> Dict[str, Any]:
         result = monitor.stop()
         result['rows'] = 0
         result['success'] = False
-        result['error'] = str(e)
+        # Get more detailed error info
+        import traceback
+        error_detail = traceback.format_exc()
+        result['error'] = f"{type(e).__name__}: {str(e)} | Full trace: {error_detail[-200:]}"
         return result
 
 def test_connectorx_arrow_polars(query: str, conn_uri: str) -> Dict[str, Any]:

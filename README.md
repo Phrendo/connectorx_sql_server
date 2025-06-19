@@ -1,6 +1,6 @@
 # High-Performance SQL Data Access with ConnectorX and Arrow
 
-This project demonstrates different approaches to reading SQL Server data in Python, with a focus on performance optimization for large datasets. The examples showcase the power of modern data libraries like ConnectorX and Polars combined with Apache Arrow for maximum throughput.
+This project benchmarks the various python connection methods for SQL Server. 
 
 📊 **[View Benchmark Results](results.md)** - Complete performance analysis across dataset sizes
 
